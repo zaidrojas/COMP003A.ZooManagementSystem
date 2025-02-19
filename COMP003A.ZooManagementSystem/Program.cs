@@ -73,6 +73,16 @@ namespace COMP003A.ZooManagementSystem
                         a_name = Console.ReadLine();
                         StringVerifyNull(a_name);
 
+                        Console.Write("Enter the species of the lion: ");
+                        a_species = Console.ReadLine();
+                        StringVerifyNull(a_species);
+
+                        Console.WriteLine("Enter the age of the lion: ");
+                        if (!IntVerify(out a_age))
+                        { continue; }
+
+                        Console.WriteLine();
+
                         continue;
 
                     case (2):
