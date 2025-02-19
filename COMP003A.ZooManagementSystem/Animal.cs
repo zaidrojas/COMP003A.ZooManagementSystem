@@ -48,7 +48,7 @@ namespace COMP003A.ZooManagementSystem
         }
 
         // Method to be overwritten
-        public abstract MakeSound();
+        public abstract void MakeSound();
 
     }
 }
