@@ -10,17 +10,17 @@ namespace COMP003A.ZooManagementSystem
     {
         public void DescribeAnimal(string name)
         {
-
+            Console.WriteLine($"Animal Name: {name}");
         }
 
         public void DescribeAnimal(string name, string species)
         {
-
+            Console.WriteLine($"Animal Name: {name}, Species: {species});
         }
 
         public void DescribeAnimal(string name, string species, int age)
         {
-
+            Console.WriteLine($"Animal Name: {name}, Species: {species}, Age: {age} years old");
         }
 
     }
