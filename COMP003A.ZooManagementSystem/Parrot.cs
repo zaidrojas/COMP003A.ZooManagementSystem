@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace COMP003A.ZooManagementSystem
 {
-    internal class Parrot : Animal
+    class Parrot : Animal
     {
-        
         public override void MakeSound()
         {
             Console.WriteLine("The parrot squawks!");

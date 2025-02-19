@@ -39,16 +39,7 @@ namespace COMP003A.ZooManagementSystem
             }
         }
 
-        // Constructor
-        public Animal (string name, string species)
-        {
-            _name = name;
-            _species = species;
-
-        }
-
         // Method to be overwritten
         public abstract void MakeSound();
-
     }
 }
