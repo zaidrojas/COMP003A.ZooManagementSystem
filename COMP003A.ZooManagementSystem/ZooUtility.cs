@@ -22,6 +22,5 @@ namespace COMP003A.ZooManagementSystem
         {
             Console.WriteLine($"Animal Name: {name}, Species: {species}, Age: {age} years old");
         }
-
     }
 }

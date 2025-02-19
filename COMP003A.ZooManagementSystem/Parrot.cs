@@ -8,9 +8,17 @@ namespace COMP003A.ZooManagementSystem
 {
     class Parrot : Animal
     {
+        public Parrot(string name, string species, int age)
+        {
+            Name = name;
+            Species = species;
+            Age = age;
+        }
+
         public override void MakeSound()
         {
-            Console.WriteLine("The parrot squawks!");
+            Console.Write("The parrot squawks! ");
+            Console.WriteLine($"({Name}, {Species})");
         }
 
     }
