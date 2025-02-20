@@ -50,6 +50,14 @@ namespace COMP003A.ZooManagementSystem
                 return false;
             }
         }
+
+        public static string UpperStart(string word)
+        {
+            string updated_word = word.ToLower();
+            char start_chat = char.ToUpper(updated_word[0]);
+            updated_word = updated_word.Substring(1);
+            return start_chat + updated_word;
+        }
         //////////////////////////////////
 
 
@@ -95,7 +103,7 @@ namespace COMP003A.ZooManagementSystem
                         { continue; }
 
                         // Creates the Parrot then adds to the list
-                        Animal newLion = new Lion(a_name, a_species, a_age);
+                        Animal newLion = new Lion(UpperStart(a_name), UpperStart(a_species), a_age);
                         AnimalList.Add(newLion);
 
                         Console.WriteLine("\nLion added successfully!\n");
@@ -116,7 +124,7 @@ namespace COMP003A.ZooManagementSystem
                         { continue; }
 
                         // Creates the Parrot then adds to the list
-                        Animal newParrot = new Parrot(a_name, a_species, a_age);
+                        Animal newParrot = new Parrot(UpperStart(a_name), UpperStart(a_species), a_age);
                         AnimalList.Add(newParrot);
 
                         Console.WriteLine("\nLion added successfully!\n");
@@ -130,11 +138,36 @@ namespace COMP003A.ZooManagementSystem
                         {
                             animal.MakeSound();
                         }
-                        // Creating a soace afterwards
+                        // Creating a line break afterwards
                         Console.WriteLine("");
                         continue;
 
                     case (4):
+                        string a_search;
+                        
+                        Console.WriteLine("\n--List of all animals--");
+                        foreach (Animal animal in AnimalList)
+                        {
+                            Console.WriteLine($"{animal.Name}");
+                        }
+
+                        Console.WriteLine("-----------------------");
+                        Console.Write("Which animal did you want described?: ");
+                        a_search = Console.ReadLine();
+                        StringVerifyNull(a_search);
+
+                        foreach (Animal animal in AnimalList)
+                        {
+                            if (UpperStart(a_search) == animal.Name)
+                            {
+                                Console.WriteLine("");
+                                ZooUtility describe = new ZooUtility();
+                                describe.DescribeAnimal(animal.Name);
+                                describe.DescribeAnimal(animal.Name, animal.Species);
+                                describe.DescribeAnimal(animal.Name, animal.Species, animal.Age);
+                                Console.WriteLine("");
+                            }
+                        }
 
                         continue;
 
