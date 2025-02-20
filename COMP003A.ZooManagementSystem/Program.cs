@@ -51,6 +51,7 @@ namespace COMP003A.ZooManagementSystem
             }
         }
 
+        // Will make the string entierly lowercase besides the first character
         public static string UpperStart(string word)
         {
             string updated_word = word.ToLower();
@@ -127,13 +128,13 @@ namespace COMP003A.ZooManagementSystem
                         Animal newParrot = new Parrot(UpperStart(a_name), UpperStart(a_species), a_age);
                         AnimalList.Add(newParrot);
 
-                        Console.WriteLine("\nLion added successfully!\n");
+                        Console.WriteLine("\nParrot added successfully!\n");
                         continue;
 
                     case (3):
                         // Introduction
                         Console.WriteLine("\nDisplaying all animals:");
-                        // Describe all the animals
+                        // Display all the animals
                         foreach(Animal animal in AnimalList)
                         {
                             animal.MakeSound();
@@ -143,32 +144,41 @@ namespace COMP003A.ZooManagementSystem
                         continue;
 
                     case (4):
+                        // Describing an existing animal in the list
                         string a_search;
+                        bool found = false;
                         
-                        Console.WriteLine("\n--List of all animals--");
+                        Console.WriteLine("\n--List of current animals--");
                         foreach (Animal animal in AnimalList)
                         {
                             Console.WriteLine($"{animal.Name}");
                         }
 
-                        Console.WriteLine("-----------------------");
+                        Console.WriteLine("----------------------------");
                         Console.Write("Which animal did you want described?: ");
                         a_search = Console.ReadLine();
                         StringVerifyNull(a_search);
 
+                        // Will check if inputed name is in the list of animals
                         foreach (Animal animal in AnimalList)
                         {
                             if (UpperStart(a_search) == animal.Name)
                             {
+                                found = true;
                                 Console.WriteLine("");
                                 ZooUtility describe = new ZooUtility();
                                 describe.DescribeAnimal(animal.Name);
                                 describe.DescribeAnimal(animal.Name, animal.Species);
                                 describe.DescribeAnimal(animal.Name, animal.Species, animal.Age);
                                 Console.WriteLine("");
+                                break;
                             }
                         }
-
+                        // if user input is not in the list of animals, inform them so
+                        if (!found)
+                        {
+                            Console.WriteLine("\nName is not in list.\n");
+                        }
                         continue;
 
                     case (5):
